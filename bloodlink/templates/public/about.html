@@ -1,0 +1,113 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="px-40 flex flex-1 justify-center py-5">
+  <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+    <div class="@container">
+      <div class="@[480px]:p-4">
+        <div
+          class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
+          style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://cdn.usegalileo.ai/sdxl10/7a42b907-a929-4f27-98e2-89c906cde7db.png");'
+        >
+          <div class="flex flex-col gap-2 text-center">
+            <h1
+              class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+            >
+              Why donate?
+            </h1>
+            <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+              It's a gift of life. Donating blood is an essential part of saving lives. The blood you donate is used to save the lives of people who have been in accidents,
+              and for many other reasons. It is also used for people having surgery. People with cancer and other serious illnesses often need blood as well.
+            </h2>
+          </div>
+          <button
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#f10e25] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+          >
+            <span class="truncate">Donate now</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <h2 class="text-[#181111] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">What is blood donation?</h2>
+    <p class="text-[#181111] text-base font-normal leading-normal pb-3 pt-1 px-4">
+      Blood donation is giving some of your blood so that it can be used to help someone else. Blood donation is a voluntary, unpaid practice that can save countless lives.
+      When you give blood, you are giving hope to someone in need. Blood donation is a simple, safe, and lifesaving act that anyone can do. It takes about 15 minutes to
+      donate a pint of blood, and one donation can save up to three lives.
+    </p>
+    <h2 class="text-[#181111] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Importance of blood donation</h2>
+    <p class="text-[#181111] text-base font-normal leading-normal pb-3 pt-1 px-4">
+      Blood donation is important because it saves lives. Every day, thousands of people need blood to survive. When you donate blood, you are helping to ensure that
+      hospitals have the blood they need to treat patients in need. Without blood donors, many medical procedures would not be possible. Blood donation is an essential part
+      of modern medicine, and it is an act of kindness that has the power to change lives.
+    </p>
+    <h2 class="text-[#181111] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Who can donate blood?</h2>
+    <p class="text-[#181111] text-base font-normal leading-normal pb-3 pt-1 px-4">
+      Most people can donate blood, but there are some restrictions. To be eligible to donate blood, you must: Be at least 17 years old (or 16 with parental consent), weigh
+      at least 110 pounds, be in good health, and meet certain other requirements. Some people may not be able to donate blood for medical or other reasons. If you are
+      unsure whether you are eligible to donate blood, you can contact your local blood bank for more information.
+    </p>
+    <h2 class="text-[#181111] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">How does blood donation save lives?</h2>
+    <p class="text-[#181111] text-base font-normal leading-normal pb-3 pt-1 px-4">
+      Blood donation saves lives by providing patients with the blood they need to survive. Many medical procedures, such as surgery and cancer treatment, require blood
+      transfusions. Without blood donors, these procedures would not be possible. Blood donation is an essential part of modern medicine, and it is an act of kindness that
+      has the power to change lives. By donating blood, you are helping to ensure that hospitals have the blood they need to treat patients in need. Every donation can save
+      up to three lives, making blood donation a simple, safe, and lifesaving act that anyone can do.
+    </p>
+    <h2 class="text-[#181111] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Frequently Asked Questions</h2>
+    <div class="flex flex-col p-4 gap-3">
+      <details class="flex flex-col rounded-xl border border-[#e6dbdc] bg-white px-[15px] py-[7px] group" open="">
+        <summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+          <p class="text-[#181111] text-sm font-medium leading-normal">Is blood donation safe?</p>
+          <div class="text-[#181111] group-open:rotate-180" data-icon="CaretDown" data-size="20px" data-weight="regular">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+              <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+            </svg>
+          </div>
+        </summary>
+        <p class="text-[#8a6064] text-sm font-normal leading-normal pb-2">
+          Yes, blood donation is safe. The equipment used to collect blood is sterile and disposable, and the donation process is supervised by trained professionals. The
+          needle used to collect blood is new and sterile for each donation. The entire process takes about 10-15 minutes, and most people feel fine afterward. Some people
+          may experience minor side effects, such as dizziness or bruising at the needle site, but these are rare and usually mild. If you have any concerns about blood
+          donation, you can speak with a healthcare professional or contact your local blood bank for more information.
+        </p>
+      </details>
+      <details class="flex flex-col rounded-xl border border-[#e6dbdc] bg-white px-[15px] py-[7px] group">
+        <summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+          <p class="text-[#181111] text-sm font-medium leading-normal">How long does it take to donate blood?</p>
+          <div class="text-[#181111] group-open:rotate-180" data-icon="CaretDown" data-size="20px" data-weight="regular">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+              <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+            </svg>
+          </div>
+        </summary>
+        <p class="text-[#8a6064] text-sm font-normal leading-normal pb-2">
+          Yes, blood donation is safe. The equipment used to collect blood is sterile and disposable, and the donation process is supervised by trained professionals. The
+          needle used to collect blood is new and sterile for each donation. The entire process takes about 10-15 minutes, and most people feel fine afterward. Some people
+          may experience minor side effects, such as dizziness or bruising at the needle site, but these are rare and usually mild. If you have any concerns about blood
+          donation, you can speak with a healthcare professional or contact your local blood bank for more information.
+        </p>
+      </details>
+      <details class="flex flex-col rounded-xl border border-[#e6dbdc] bg-white px-[15px] py-[7px] group">
+        <summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+          <p class="text-[#181111] text-sm font-medium leading-normal">How often can I donate blood?</p>
+          <div class="text-[#181111] group-open:rotate-180" data-icon="CaretDown" data-size="20px" data-weight="regular">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+              <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+            </svg>
+          </div>
+        </summary>
+        <p class="text-[#8a6064] text-sm font-normal leading-normal pb-2">
+          Yes, blood donation is safe. The equipment used to collect blood is sterile and disposable, and the donation process is supervised by trained professionals. The
+          needle used to collect blood is new and sterile for each donation. The entire process takes about 10-15 minutes, and most people feel fine afterward. Some people
+          may experience minor side effects, such as dizziness or bruising at the needle site, but these are rare and usually mild. If you have any concerns about blood
+          donation, you can speak with a healthcare professional or contact your local blood bank for more information.
+        </p>
+      </details>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}
+

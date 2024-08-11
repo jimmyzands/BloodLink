@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<style>
+    .donate-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .blood-type-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .blood-type-button {
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        background-color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .blood-type-button:hover, .blood-type-button.active {
+        background-color: #ff3e3e;
+        color: white;
+        border-color: #ff3e3e;
+    }
+    .date-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .submit-button {
+        background-color: #ff3e3e;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .submit-button:hover {
+        background-color: #e63535;
+    }
+</style>
+
+<div class="donate-container">
+    <h1>Offer Blood Donation</h1>
+    
+    <form id="donationForm">
+        <h2>Step 1: Choose your blood type</h2>
+        <div class="blood-type-options">
+            <button type="button" class="blood-type-button" data-type="O+">O+</button>
+            <button type="button" class="blood-type-button" data-type="O-">O-</button>
+            <button type="button" class="blood-type-button" data-type="A+">A+</button>
+            <button type="button" class="blood-type-button" data-type="A-">A-</button>
+            <button type="button" class="blood-type-button" data-type="B+">B+</button>
+            <button type="button" class="blood-type-button" data-type="B-">B-</button>
+            <button type="button" class="blood-type-button" data-type="AB+">AB+</button>
+            <button type="button" class="blood-type-button" data-type="AB-">AB-</button>
+        </div>
+
+        <h2>Step 2: Choose dates available to donate</h2>
+        <input type="text" id="donation-dates" class="date-input" placeholder="Select dates">
+
+        <button type="submit" class="submit-button">Submit Donation Offer</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const bloodTypeButtons = document.querySelectorAll('.blood-type-button');
+    let selectedBloodType = null;
+
+    bloodTypeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            bloodTypeButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            selectedBloodType = this.getAttribute('data-type');
+        });
+    });
+
+    flatpickr("#donation-dates", {
+        mode: "multiple",
+        dateFormat: "Y-m-d",
+        minDate: "today",
+        maxDate: new Date().fp_incr(60), // Allows selection up to 60 days in the future
+        disable: [
+            function(date) {
+                // Disable weekends
+                return (date.getDay() === 0 || date.getDay() === 6);
+            }
+        ],
+        locale: {
+            firstDayOfWeek: 1 // Start week on Monday
+        }
+    });
+
+    document.getElementById('donationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (!selectedBloodType) {
+            alert('Please select a blood type');
+            return;
+        }
+        const selectedDates = document.getElementById('donation-dates').value;
+        if (!selectedDates) {
+            alert('Please select at least one date');
+            return;
+        }
+        
+        // Here you would typically send the form data to your server
+        console.log('Blood Type:', selectedBloodType);
+        console.log('Selected Dates:', selectedDates);
+        alert('Donation offer submitted successfully!');
+    });
+});
+</script>
+{% endblock %}

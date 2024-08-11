@@ -1,0 +1,269 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+    .profile-container {
+        display: flex;
+        width: 100%;
+        max-width: none;
+        padding: 0;
+        margin: 0;
+    }
+    .sidebar {
+        width: 250px;
+        background-color: #fff;
+        padding: 20px;
+        height: calc(100vh - 56px); /* Ajusta esto según la altura de tu navbar */
+        position: fixed;
+        left: 0;
+        overflow-y: auto;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    .sidebar-item {
+        padding: 10px 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .sidebar-item:hover, .sidebar-item.active {
+        background-color: #f0f0f0;
+    }
+    .main-content {
+        flex-grow: 1;
+        margin-left: 250px; /* Igual al ancho del sidebar */
+        padding: 20px;
+        max-width: calc(100% - 250px);
+    }
+    .profile-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-right: 20px;
+        object-fit: cover;
+    }
+    .profile-info h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+    .profile-info p {
+        margin: 5px 0;
+        color: #666;
+    }
+    .button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .edit-button {
+        background-color: #f0f0f0;
+        color: #333;
+        margin-right: 10px;
+    }
+    .history-button {
+        background-color: #ff3e3e;
+        color: white;
+    }
+    .details-section, .history-section {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    .details-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .details-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 15px;
+        background-color: #f0f0f0;
+        border-radius: 50%;
+    }
+    .history-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .content-section {
+        display: none;
+    }
+    .content-section.active {
+        display: block;
+    }
+</style>
+
+<div class="profile-container">
+    <aside class="sidebar">
+        <div class="sidebar-item active" data-section="profile">Perfil</div>
+        <div class="sidebar-item" data-section="historial">Historial</div>
+        <div class="sidebar-item" data-section="notificaciones">Notificaciones</div>
+        <div class="sidebar-item" data-section="donar">Donar</div>
+        <div class="sidebar-item" data-section="solicitar">Solicitar</div>
+        <div class="sidebar-item" data-section="ajustes">Ajustes</div>
+        <div class="sidebar-item" id="logout">Cerrar sesión</div>
+    </aside>
+    <main class="main-content">
+        <section id="profile" class="content-section active">
+            <div class="profile-header">
+                <img src="https://cdn.usegalileo.ai/stability/bc0eba85-088b-4b49-8469-82d184a81a55.png" alt="Imagen de perfil" class="profile-image">
+                <div class="profile-info">
+                    <h1>{{ current_user.username }}</h1>
+                    <p>{{ current_user.blood_type }}</p>
+                    <p>Última donación: {{ current_user.last_donation }}</p>
+                    <div>
+                        <button class="button edit-button" id="edit-profile">Editar perfil</button>
+                        <button class="button history-button" data-section="historial">Ver historial</button>
+                    </div>
+                </div>
+            </div>
+            <section class="details-section">
+                <h2>Detalles de perfil</h2>
+                <div class="details-item">
+                    <div class="details-icon"></div>
+                    <div>
+                        <strong>Correo electrónico</strong>
+                        <p>{{ current_user.email }}</p>
+                    </div>
+                </div>
+                <div class="details-item">
+                    <div class="details-icon"></div>
+                    <div>
+                        <strong>Contraseña</strong>
+                        <p>********</p>
+                    </div>
+                </div>
+                <div class="details-item">
+                    <div class="details-icon"></div>
+                    <div>
+                        <strong>Número de teléfono</strong>
+                        <p>{{ current_user.phone or 'Ninguna' }}</p>
+                    </div>
+                </div>
+                <div class="details-item">
+                    <div class="details-icon"></div>
+                    <div>
+                        <strong>Género</strong>
+                        <p>{{ current_user.gender }}</p>
+                    </div>
+                </div>
+                <div class="details-item">
+                    <div class="details-icon"></div>
+                    <div>
+                        <strong>Fecha de nacimiento</strong>
+                        <p>{{ current_user.birth_date }}</p>
+                    </div>
+                </div>
+                <div class="details-item">
+                    <div class="details-icon"></div>
+                    <div>
+                        <strong>Tipo de sangre</strong>
+                        <p>{{ current_user.blood_type }}</p>
+                    </div>
+                </div>
+                <div class="details-item">
+                    <div class="details-icon"></div>
+                    <div>
+                        <strong>Información médica</strong>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+        <section id="historial" class="content-section">
+            <h2>Historial de Donaciones</h2>
+            {% for donation in current_user.donations %}
+            <div class="history-item">
+                <div>
+                    <strong>Donación de sangre</strong>
+                    <p>{{ donation.relative_time }}</p>
+                </div>
+                <div>{{ donation.date }}</div>
+            </div>
+            {% endfor %}
+        </section>
+        
+        <section id="notificaciones" class="content-section">
+            <h2>Notificaciones</h2>
+            <!-- Añadir contenido de notificaciones aquí -->
+        </section>
+        
+        <section id="donar" class="content-section">
+            <h2>Donar Sangre</h2>
+            <!-- Añadir formulario o información para donar sangre -->
+        </section>
+        
+        <section id="solicitar" class="content-section">
+            <h2>Solicitar Sangre</h2>
+            <!-- Añadir formulario o información para solicitar sangre -->
+        </section>
+        
+        <section id="ajustes" class="content-section">
+            <h2>Ajustes de la Cuenta</h2>
+            <!-- Añadir opciones de ajustes de la cuenta -->
+        </section>
+    </main>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    function showSection(sectionId) {
+        contentSections.forEach(section => {
+            section.classList.remove('active');
+        });
+        sidebarItems.forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        const targetSection = document.getElementById(sectionId);
+        const targetSidebarItem = document.querySelector(`.sidebar-item[data-section="${sectionId}"]`);
+        
+        if (targetSection) targetSection.classList.add('active');
+        if (targetSidebarItem) targetSidebarItem.classList.add('active');
+    }
+    
+    sidebarItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const sectionId = this.getAttribute('data-section');
+            if (sectionId) {
+                showSection(sectionId);
+            }
+        });
+    });
+    
+    document.getElementById('edit-profile').addEventListener('click', function() {
+        alert('Función para editar perfil - A implementar');
+        // Aquí puedes agregar la lógica para abrir un modal de edición o redirigir a una página de edición
+    });
+    
+    document.querySelector('.history-button').addEventListener('click', function() {
+        showSection('historial');
+    });
+    
+    document.getElementById('logout').addEventListener('click', function() {
+        if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+            window.location.href = "{{ url_for('public.logout') }}";
+        }
+    });
+});
+</script>
+{% endblock %}

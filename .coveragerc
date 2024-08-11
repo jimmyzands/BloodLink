@@ -1,0 +1,6 @@
+[run]
+source = bloodlink
+omit = 
+    tests/*
+    autoapp.py
+
