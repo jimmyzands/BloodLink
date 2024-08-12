@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Edit Profile</h2>
+    <form id="editProfileForm" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control", id="username") }}
+        </div>
+        <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control", id="email") }}
+        </div>
+        <div class="mb-3">
+            {{ form.full_name.label(class="form-label") }}
+            {{ form.full_name(class="form-control", id="full_name") }}
+        </div>
+        <div class="mb-3">
+            {{ form.phone.label(class="form-label") }}
+            {{ form.phone(class="form-control", id="phone") }}
+        </div>
+        <div class="mb-3">
+            {{ form.birth_date.label(class="form-label") }}
+            {{ form.birth_date(class="form-control", id="birth_date", type="date") }}
+        </div>
+        <div class="mb-3">
+            {{ form.gender.label(class="form-label") }}
+            {{ form.gender(class="form-select", id="gender") }}
+        </div>
+        <div class="mb-3">
+            {{ form.blood_type.label(class="form-label") }}
+            {{ form.blood_type(class="form-select", id="blood_type") }}
+        </div>
+        <button type="submit" class="btn btn-primary">Update Profile</button>
+    </form>
+</div>
+{% endblock %}
