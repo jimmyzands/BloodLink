@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Public forms."""
 from flask_wtf import FlaskForm
-from wtforms import PasswordField, StringField
-from wtforms.validators import DataRequired
+from wtforms import PasswordField, StringField, IntegerField, SelectField, DateField
+from wtforms.validators import DataRequired, NumberRange, Optional
 
 from bloodlink.user.models import User
 
@@ -36,4 +36,26 @@ class LoginForm(FlaskForm):
         if not self.user.active:
             self.username.errors.append("User not activated")
             return False
+        return True
+    
+class DonacionForm(FlaskForm):
+    """Formulario para registrar una donación de sangre."""
+
+    cantidad_ml = IntegerField("Cantidad (ml)", validators=[
+        DataRequired(message="La cantidad es requerida"),
+        NumberRange(min=50, max=500, message="La cantidad debe estar entre 50 y 500 ml")
+    ])
+    
+    genero = SelectField("Género", choices=[('M', 'Masculino'), ('F', 'Femenino')], validators=[DataRequired()])
+    
+    fecha_donacion = DateField("Fecha de la donación", validators=[Optional()], format='%Y-%m-%d')
+
+    def validate(self, **kwargs):
+        """Validar el formulario."""
+        initial_validation = super(DonacionForm, self).validate()
+        if not initial_validation:
+            return False
+        
+        # Aquí se puede agregar validaciones personalizadas si es necesario
+        # Ejemplo: verificar si el usuario ya ha donado en un periodo de tiempo limitado
         return True
