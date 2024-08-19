@@ -63,3 +63,27 @@ class User(UserMixin, PkModel):
     def __repr__(self):
         """Represent instance as a unique string."""
         return f"<User({self.username!r})>"
+    
+class Donor(PkModel):
+    """A donor of the app."""
+    __tablename__ = "donors"
+    id_card = Column(db.String(11), unique=True, nullable=False)
+    name = Column(db.String(50), nullable=False)
+    address = Column(db.String(250), nullable=False)
+    gender = Column(db.String(1), nullable=False)
+    orientation = Column(db.String(20), nullable=False)
+    donation_for = Column(db.String(50), nullable=False)
+    phone = Column(db.String(10), nullable=False)
+    email = Column(db.String(100), nullable=False)
+    illness = Column(db.Text, nullable=False)
+    blood_group = Column(db.String(3), nullable=False)
+    cold = Column(db.Boolean, default=False)
+    vaccine = Column(db.Boolean, default=False)
+    cancer = Column(db.Boolean, default=False)
+    tattoo = Column(db.Boolean, default=False)
+    rehabilitation = Column(db.Boolean, default=False)
+    surgery = Column(db.Boolean, default=False)
+
+    def __repr__(self):
+        """Represent instance as a unique string."""
+        return f"<Donor(id_card={self.id_card!r})>"

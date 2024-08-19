@@ -13,8 +13,8 @@ from flask_login import login_required, login_user, logout_user
 
 from bloodlink.extensions import login_manager
 from bloodlink.public.forms import LoginForm
-from bloodlink.user.forms import RegisterForm
-from bloodlink.user.models import User
+from bloodlink.user.forms import RegisterForm, DonateForm
+from bloodlink.user.models import User, Donor
 from bloodlink.utils import flash_errors
 
 blueprint = Blueprint("public", __name__, static_folder="../static")
@@ -77,11 +77,32 @@ def about():
     return render_template("public/about.html", form=form)
 
 
-@blueprint.route("/donate/")
+@blueprint.route('/donate', methods=['GET', 'POST'])
+@login_required
 def donate():
-    """Donar pagina."""
-    form = LoginForm(request.form)
-    return render_template("public/donar.html", form=form)
+    form = DonateForm()
+    if form.validate_on_submit():
+        Donor.create(
+            id_card=form.cedula.data,
+            name=form.nombre.data,
+            address=form.direccion.data,
+            gender=form.sexo.data,
+            orientation=form.orientacion.data,
+            donation_for=form.donacion_para.data,
+            phone=form.telefono.data,
+            email=form.email.data,
+            illness=form.enfermedad_donante.data,
+            blood_group=form.grupo_sanguineo.data,
+            cold=form.resfriado.data == 'S',
+            vaccine=form.vacuna.data == 'S',
+            cancer=form.cancer.data == 'S',
+            tattoo=form.tatuaje.data == 'S',
+            rehabilitation=form.rehabilitacion.data == 'S',
+            surgery=form.cirugia.data == 'S'
+        )
+        flash('Donación registrada con éxito!', 'success')
+        return redirect(url_for('public.home'))
+    return render_template('public/donate.html', form=form)
 
 @blueprint.route("/solicitud/")
 def solicitud():
