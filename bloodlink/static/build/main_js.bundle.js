@@ -696,7 +696,7 @@ eval("/*\n * Main Javascript file for bloodlink.\n *\n * This file bundles all o
   \******************************/
 /***/ (() => {
 
-eval("// place any jQuery/helper plugins in here, instead of separate, slower script files.//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9hc3NldHMvanMvcGx1Z2lucy5qcyIsIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsid2VicGFjazovL2Jsb29kbGluay8uL2Fzc2V0cy9qcy9wbHVnaW5zLmpzPzcwOTQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gcGxhY2UgYW55IGpRdWVyeS9oZWxwZXIgcGx1Z2lucyBpbiBoZXJlLCBpbnN0ZWFkIG9mIHNlcGFyYXRlLCBzbG93ZXIgc2NyaXB0IGZpbGVzLlxuIl0sIm1hcHBpbmdzIjoiQUFBQSIsImlnbm9yZUxpc3QiOltdfQ==\n//# sourceURL=webpack-internal:///./assets/js/plugins.js\n");
+eval("// place any jQuery/helper plugins in here, instead of separate, slower script files.//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sInNvdXJjZXMiOlsid2VicGFjazovL2Jsb29kbGluay8uL2Fzc2V0cy9qcy9wbHVnaW5zLmpzPzcwOTQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gcGxhY2UgYW55IGpRdWVyeS9oZWxwZXIgcGx1Z2lucyBpbiBoZXJlLCBpbnN0ZWFkIG9mIHNlcGFyYXRlLCBzbG93ZXIgc2NyaXB0IGZpbGVzLlxuIl0sIm1hcHBpbmdzIjoiQUFBQSIsImlnbm9yZUxpc3QiOltdLCJmaWxlIjoiLi9hc3NldHMvanMvcGx1Z2lucy5qcyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./assets/js/plugins.js\n");
 
 /***/ }),
 
@@ -706,7 +706,7 @@ eval("// place any jQuery/helper plugins in here, instead of separate, slower sc
   \*****************************/
 /***/ (() => {
 
-eval("// App initialization code goes here//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9hc3NldHMvanMvc2NyaXB0LmpzIiwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vYmxvb2RsaW5rLy4vYXNzZXRzL2pzL3NjcmlwdC5qcz84MjA1Il0sInNvdXJjZXNDb250ZW50IjpbIi8vIEFwcCBpbml0aWFsaXphdGlvbiBjb2RlIGdvZXMgaGVyZVxuIl0sIm1hcHBpbmdzIjoiQUFBQSIsImlnbm9yZUxpc3QiOltdfQ==\n//# sourceURL=webpack-internal:///./assets/js/script.js\n");
+eval("// App initialization code goes here//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sInNvdXJjZXMiOlsid2VicGFjazovL2Jsb29kbGluay8uL2Fzc2V0cy9qcy9zY3JpcHQuanM/ODIwNSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBBcHAgaW5pdGlhbGl6YXRpb24gY29kZSBnb2VzIGhlcmVcbiJdLCJtYXBwaW5ncyI6IkFBQUEiLCJpZ25vcmVMaXN0IjpbXSwiZmlsZSI6Ii4vYXNzZXRzL2pzL3NjcmlwdC5qcyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./assets/js/script.js\n");
 
 /***/ }),
 
