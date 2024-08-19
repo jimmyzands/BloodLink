@@ -98,6 +98,13 @@
                     <option value="Transexual">Transexual</option>
                 </select>
             </div>
+
+            <div class="form-group">
+                <label for="donacion_para">De ser el caso favor coloque el nombre de la persona a la que le va a donar:</label>
+                <input type="text" input id="donacion_para" name="donacion_para">
+            </div>
+
+
             <div class="form-group">
                 <label for="telefono">Teléfono de Contacto:</label>
                 <input type="tel" id="telefono" name="telefono" required>
@@ -106,12 +113,22 @@
                 <label for="email">Correo Electrónico:</label>
                 <input type="email" id="email" name="email" required>
             </div>
+
+
         </fieldset>
 
         <fieldset>
-            <legend>Información Médica del Solicitante</legend>
+            <legend>Información Médica:</legend>
+            <div>
+                <div class="form-group">
+                    <label for="enfermedad-donante">Padece alguna enfermedad:</label>
+                    <input type="text" input type="enfermedad-donante" id="enfermedad-donante" name="enfermedad-donante" required>
+
+                </div>
+            </div>
+
             <div class="form-group">
-                <label for="grupo-sanguineo">Grupo Sanguíneo que requiere:</label>
+                <label for="grupo-sanguineo">Grupo Sanguíneo:</label>
                 <select id="grupo-sanguineo" name="grupo-sanguineo" required>
                     <option value="">--Seleccione una opción--</option>
                     <option value="A+">A+</option>
@@ -124,7 +141,60 @@
                     <option value="O-">O-</option>
                 </select>
             </div>
-        </fieldset>
+
+            <div class="form-group">
+                <label>Tienes sintomas de resfriado:</label>
+                <div>
+                    <label><input type="radio" name="resfriado" value="S"> S</label>
+                    <label><input type="radio" name="resfriado" value="N"> N</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Te has vacunado en las ultimas 48 horas:</label>
+                <div>
+                    <label><input type="radio" name="vacuna" value="S"> S</label>
+                    <label><input type="radio" name="vacuna" value="N"> N</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>En los ultimos años has sufrido de cancer:</label>
+                <div>
+                    <label><input type="radio" name="cancer" value="S"> S</label>
+                    <label><input type="radio" name="cancer" value="N"> N</label>
+                </div>
+            </div>
+
+        </fieldset> 
+
+        <fieldset>
+            <legend>En los ultimos 6 meses:</legend>
+            <div class="form-group">
+                <label>Te has realizado un tatuajes:</label>
+                <div>
+                    <label><input type="radio" name="tattoo" value="S"> S</label>
+                    <label><input type="radio" name="tattoo" value="N"> N</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Has estado en rehabilitación:</label>
+                <div>
+                    <label><input type="radio" name="drogo" value="S"> S</label>
+                    <label><input type="radio" name="drogo" value="N"> N</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Te has realizado una cirugia:</label>
+                <div>
+                    <label><input type="radio" name="cirugia" value="S"> S</label>
+                    <label><input type="radio" name="cirugia" value="N"> N</label>
+                </div>
+            </div>
+        </fieldset> 
+
         <button type="submit">Enviar Solicitud</button>
     </form>
 </div>
