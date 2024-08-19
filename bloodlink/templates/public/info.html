@@ -1,0 +1,233 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        color: #333;
+    }
+    .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .header-image {
+        height: 400px;
+        background-image: url('https://hiyaja.com/wp-content/uploads/2022/04/blog-post-template-5-770x510-1.png');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .header-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .header-content {
+        position: relative;
+        z-index: 1;
+        padding: 0 20px;
+    }
+    .content-section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        overflow: hidden;
+    }
+    .section-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+    }
+    .section-content {
+        padding: 20px;
+    }
+    h1, h2 {
+        color: #A4C639;
+    }
+    .donate-button {
+        background-color: #f10e25;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-decoration: none;
+        display: inline-block;
+    }
+    .donate-button:hover,
+    .donate-button:focus,
+    .donate-button:active {
+        background-color: #8c0412;
+        color: white;
+    }
+    .donate-button:visited {
+        background-color: #f10e25;
+        color: white;
+        text-decoration: none;
+    }
+    .faq-section {
+        background-color: #e0f7da;
+        border: 2px solid #b9fbc0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 30px;
+    }
+    .faq-item {
+        margin-bottom: 15px;
+    }
+    .faq-question {
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+    .faq-answer {
+        margin-top: 10px;
+        display: none;
+    }
+</style>
+
+<div class="container">
+    <div class="header-image">
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <h1 class="text-4xl font-bold mb-4">¿Por qué donar?</h1>
+            <p class="mb-6">Es un regalo de vida. La donación de sangre es una parte esencial para salvar vidas.</p>
+            <a href="{{ url_for('public.donate') }}" class="donate-button">Donar ahora</a>
+        </div>
+    </div>
+
+
+    <div class="content-section">
+        <div class="section-image" style="background-image: url('https://8e93beb6.rocketcdn.me/storage/2021/04/abc-thumb-blog-importante-donacion.jpg');"></div>
+        <div class="section-content">
+            <h2 class="text-2xl font-bold mb-4">¿Qué es la donación de sangre?</h2>
+            <p>La donación de sangre consiste en dar una parte de tu sangre para que pueda ser utilizada para ayudar a otra persona. Es una práctica voluntaria y no remunerada que puede salvar innumerables vidas. Cuando donas sangre, estás dando esperanza a alguien que lo necesita.</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-image" style="background-image: url('https://azura.mx/sitio-satelite/wp-content/uploads/sites/4/2022/10/donacion-de-organos-en-mexico.jpg');"></div>
+        <div class="section-content">
+            <h2 class="text-2xl font-bold mb-4">Importancia de la donación de sangre</h2>
+            <p>La donación de sangre es importante porque salva vidas. Cada día, miles de personas necesitan sangre para sobrevivir. Cuando donas sangre, estás ayudando a asegurar que los hospitales tengan la sangre necesaria para tratar a los pacientes que la necesitan.</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-image" style="background-image: url('https://colombianadetrasplantes.com/web/wp-content/uploads/2021/09/donantes-de-organos-colombiana-de-trasplantes.jpeg');"></div>
+        <div class="section-content">
+            <h2 class="text-2xl font-bold mb-4">¿Quién puede donar sangre?</h2>
+            <p>La mayoría de las personas pueden donar sangre, pero existen algunas restricciones. Para ser elegible para donar sangre, debes tener al menos 18 años, pesar al menos 50 kg, estar en buen estado de salud y cumplir con ciertos otros requisitos.</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-image" style="background-image: url('https://media.metrolatam.com/2017/11/28/28p104colbancodesangre-317ee565334857edf806d7e18b8e34e5-1200x800.jpg');"></div>
+        <div class="section-content">
+            <h2 class="text-2xl font-bold mb-4">¿Cómo salva vidas la donación de sangre?</h2>
+            <p>La donación de sangre salva vidas proporcionando a los pacientes la sangre que necesitan para sobrevivir. Muchos procedimientos médicos, como cirugías y tratamientos contra el cáncer, requieren transfusiones de sangre. Sin donantes de sangre, estos procedimientos no serían posibles.</p>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <h2 class="text-2xl font-bold mb-4">Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="mr-2">+</span> ¿Es segura la donación de sangre?
+            </div>
+            <div class="faq-answer">
+                Sí, la donación de sangre es segura. El equipo utilizado para recolectar sangre es estéril y desechable, y el proceso de donación es supervisado por profesionales capacitados.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="mr-2">+</span> ¿Cuánto tiempo toma donar sangre?
+            </div>
+            <div class="faq-answer">
+                El proceso completo de donación de sangre toma entre 45 minutos y una hora. Esto incluye el tiempo necesario para completar el papeleo, tener una breve evaluación de salud y donar la sangre.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="mr-2">+</span> ¿Con qué frecuencia puedo donar sangre?
+            </div>
+            <div class="faq-answer">
+                En general, se puede donar sangre cada 2 meses (8 semanas). Los hombres pueden donar hasta 4 veces al año, y las mujeres hasta 3 veces al año. Sin embargo, es importante consultar con el centro de donación para obtener información específica.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="mr-2">+</span> ¿Necesito saber mi tipo de sangre para donar?
+            </div>
+            <div class="faq-answer">
+                No es necesario conocer tu tipo de sangre para donar. Cuando donas, se realizará un análisis para determinar tu tipo de sangre.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="mr-2">+</span> ¿Puedo donar si estoy tomando medicamentos?
+            </div>
+            <div class="faq-answer">
+                Depende del medicamento. Algunos medicamentos no afectan la donación, mientras que otros pueden requerir un período de espera. Es mejor informar al personal médico sobre cualquier medicamento que estés tomando.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="mr-2">+</span> ¿Qué debo hacer antes de donar sangre?
+            </div>
+            <div class="faq-answer">
+                Es recomendable comer bien y beber mucha agua antes de donar. Evita alimentos grasos y asegúrate de haber dormido lo suficiente. Lleva una identificación y una lista de los medicamentos que tomas.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="mr-2">+</span> ¿Puedo hacer ejercicio después de donar sangre?
+            </div>
+            <div class="faq-answer">
+                Se recomienda evitar el ejercicio intenso o levantar objetos pesados durante al menos 24 horas después de donar sangre. Es importante dar tiempo a tu cuerpo para recuperarse.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                <span class="mr-2">+</span> ¿Duele donar sangre?
+            </div>
+            <div class="faq-answer">
+                La mayoría de las personas sienten solo un pequeño pinchazo cuando se inserta la aguja. El proceso en sí no es doloroso. Si experimentas alguna molestia, infórmale al personal inmediatamente.
+            </div>
+        </div>
+    </div>
+        <!-- Más preguntas FAQ pueden ser añadidas aquí -->
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const icon = question.querySelector('span');
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                icon.textContent = '+';
+            } else {
+                answer.style.display = 'block';
+                icon.textContent = '-';
+            }
+        });
+    });
+</script>
+{% endblock %}
