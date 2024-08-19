@@ -19,12 +19,14 @@ from bloodlink.utils import flash_errors
 
 blueprint = Blueprint("public", __name__, static_folder="../static")
 
-
 @login_manager.user_loader
 def load_user(user_id):
     """Cargar usuario por ID."""
     return User.get_by_id(int(user_id))
 
+@blueprint.app_context_processor
+def inject_login_form():
+    return {'form': LoginForm()}
 
 @blueprint.route("/", methods=["GET", "POST"])
 def home():
@@ -51,7 +53,6 @@ def logout():
     flash("Has cerrado sesión.", "info")
     return redirect(url_for("public.home"))
 
-
 @blueprint.route("/register/", methods=["GET", "POST"])
 def register():
     """Registrar nuevo usuario."""
@@ -69,13 +70,11 @@ def register():
         flash_errors(form)
     return render_template("public/register.html", form=form)
 
-
 @blueprint.route("/about/")
 def about():
     """Página Acerca de."""
     form = LoginForm(request.form)
     return render_template("public/about.html", form=form)
-
 
 @blueprint.route('/donate', methods=['GET', 'POST'])
 @login_required
@@ -105,13 +104,11 @@ def donate():
         return redirect(url_for('public.home'))
     return render_template('public/donate.html', form=form)
 
-
 @blueprint.route("/solicitud/")
 def solicitud():
     """Página de Solicitud."""
     form = LoginForm(request.form)
     return render_template("public/solicitud.html", form=form)
-
 
 @blueprint.route("/info/")
 def info():
