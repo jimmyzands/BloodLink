@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+    .header {
+        background-color: #002147;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 70px;
+    }
+    .container {
+        margin: 30px auto;
+        max-width: 1200px;
+        padding: 0 20px;
+    }
+    .tabs {
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .tab {
+        padding: 10px 20px;
+        background-color: #d0858d;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+    .tab.active {
+        background-color: #dc3545;
+    }
+    .content {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        border: 1px solid #d4af37;
+    }
+    .tab-content {
+        display: none;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    h2 {
+        border-bottom: 2px solid #d4af37;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        color: #002147;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #002147;
+        color: #fff;
+    }
+    .btn {
+        padding: 8px 12px;
+        color: white;
+        background-color: #dc3545;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+    .btn-accept {
+        background-color: #28a745;
+    }
+    .btn-reject {
+        background-color: #dc3545;
+    }
+</style>
+
+<div class="container">
+    <div class="header">
+        <h1>Panel de Administración</h1>
+    </div>
+    <div class="tabs">
+        <button class="tab active" onclick="openTab(event, 'donationsTab')">Gestión de Donaciones</button>
+        <button class="tab" onclick="openTab(event, 'requestsTab')">Gestión de Solicitudes</button>
+    </div>
+    <div class="content">
+        <div id="donationsTab" class="tab-content active">
+            <h2>Gestión de Donaciones</h2>
+            <table id="donationsTable">
+                <thead>
+                    <tr>
+                        <th>Nombre del Donante</th>
+                        <th>Fecha de Solicitud</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las filas se añadirán dinámicamente con JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        <div id="requestsTab" class="tab-content">
+            <h2>Gestión de Solicitudes</h2>
+            <table id="requestsTable">
+                <thead>
+                    <tr>
+                        <th>Nombre del Solicitante</th>
+                        <th>Fecha de Solicitud</th>
+                        <th>Urgencia</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las filas se añadirán dinámicamente con JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabContent, tabLinks;
+        tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+        tabLinks = document.getElementsByClassName("tab");
+        for (i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    function addDonationRow(name, date) {
+        const table = document.getElementById('donationsTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+        newRow.innerHTML = `
+            <td>${name}</td>
+            <td>${date}</td>
+            <td>
+                <button class="btn btn-accept" onclick="acceptDonation(this)">Aceptar</button>
+                <button class="btn btn-reject" onclick="rejectDonation(this)">Rechazar</button>
+            </td>
+        `;
+    }
+
+    function addRequestRow(name, date, urgency) {
+        const table = document.getElementById('requestsTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+        newRow.innerHTML = `
+            <td>${name}</td>
+            <td>${date}</td>
+            <td>${urgency}</td>
+            <td>
+                <button class="btn btn-accept" onclick="acceptRequest(this)">Aceptar</button>
+                <button class="btn btn-reject" onclick="rejectRequest(this)">Rechazar</button>
+            </td>
+        `;
+    }
+
+    function acceptDonation(button) {
+        const row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        alert('Donación aceptada');
+    }
+
+    function rejectDonation(button) {
+        const row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        alert('Donación rechazada');
+    }
+
+    function acceptRequest(button) {
+        const row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        alert('Solicitud aceptada');
+    }
+
+    function rejectRequest(button) {
+        const row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        alert('Solicitud rechazada');
+    }
+
+    // Añadir algunas filas de ejemplo
+    addDonationRow('Juan Pérez', '2024-08-20');
+    addDonationRow('María García', '2024-08-21');
+    addRequestRow('Carlos Rodríguez', '2024-08-19', 'Alta');
+    addRequestRow('Ana Martínez', '2024-08-22', 'Media');
+</script>
+{% endblock %}
