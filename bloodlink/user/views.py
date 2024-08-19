@@ -11,3 +11,9 @@ blueprint = Blueprint("user", __name__, url_prefix="/users", static_folder="../s
 def members():
     """List members."""
     return render_template("users/members.html")
+
+@blueprint.route("/admin")
+@login_required
+def admin():
+    """Admin members."""
+    return render_template("users/admin.html")
