@@ -48,7 +48,7 @@ def home():
 def logout():
     """Logout."""
     logout_user()
-    flash("You are logged out.", "info")
+    flash("Estás desconectado.", "info")
     return redirect(url_for("public.home"))
 
 
@@ -63,7 +63,7 @@ def register():
             password=form.password.data,
             active=True,
         )
-        flash("Thank you for registering. You can now log in.", "success")
+        flash("Gracias por registrarte. Ahora puedes iniciar sesión.", "éxito")
         return redirect(url_for("public.home"))
     else:
         flash_errors(form)
@@ -72,13 +72,25 @@ def register():
 
 @blueprint.route("/about/")
 def about():
-    """About page."""
+    """Acerca de pagina."""
     form = LoginForm(request.form)
     return render_template("public/about.html", form=form)
 
 
 @blueprint.route("/donate/")
 def donate():
-    """Donate page."""
+    """Donar pagina."""
     form = LoginForm(request.form)
-    return render_template("public/donate.html", form=form)
+    return render_template("public/donar.html", form=form)
+
+@blueprint.route("/solicitud/")
+def solicitud():
+    """Solicitud pagina."""
+    form = LoginForm(request.form)
+    return render_template("public/solicitud.html", form=form)
+
+@blueprint.route("/info/")
+def info():
+    """Info pagina."""
+    form = LoginForm(request.form)
+    return render_template("public/info.html", form=form)
